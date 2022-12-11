@@ -1,0 +1,74 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+    height: 100vh;
+    background-color: black;
+}
+
+#anime-container{
+    width: 340px;
+    aspect-ratio: 1/1;
+}
+
+#btn-container{
+    width: 200px;
+    display: flex;
+    justify-content: space-between;
+}
+
+button{
+    background-color: black;
+    transition: scale 0.3s, stroke 0.3s;
+}
+
+button:hover{
+    rotate: -4deg;
+    scale: 1.2;
+}
+
+#play-svg:hover{
+    stroke: hsl(90, 100%, 50%);
+}
+
+#pause-svg:hover{
+    stroke: hsl(60, 100%, 50%);
+}
+
+#stop-svg:hover{
+    stroke: hsl(6, 100%, 50%);
+}
+
+#change-svg:hover{
+    stroke: hsl(274, 100%, 50%);
+}
+
+#play-svg:active{
+    stroke: hsl(202, 100%, 50%);
+    scale: 0.9;
+}
+
+#pause-svg:active{
+    stroke: hsl(202, 100%, 50%);
+    scale: 0.9;
+}
+
+#stop-svg:active{
+    stroke: hsl(202, 100%, 50%);
+    scale: 0.9;
+}
+
+#change-svg:active{
+    stroke: hsl(202, 100%, 50%);
+    scale: 0.9;
+}
