@@ -54,21 +54,21 @@ button:hover{
 }
 
 #play-svg:active{
-    stroke: hsl(202, 100%, 50%);
+    opacity: .5;
     scale: 0.9;
 }
 
 #pause-svg:active{
-    stroke: hsl(202, 100%, 50%);
+    opacity: .5;
     scale: 0.9;
 }
 
 #stop-svg:active{
-    stroke: hsl(202, 100%, 50%);
+    opacity: .5;
     scale: 0.9;
 }
 
 #change-svg:active{
-    stroke: hsl(202, 100%, 50%);
+    opacity: .5;
     scale: 0.9;
 }
