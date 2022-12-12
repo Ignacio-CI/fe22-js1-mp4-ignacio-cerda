@@ -1,9 +1,12 @@
 const container = document.querySelector('#anime-container');
 
+// Det här skapar en 5x5 matrix av fyrkanter. 
+// Jag la till width och height i en variabel för att ha mer control så kan man ändra dem om skärmen är förstor eller förliten.
 for(let i=0; i<5; i++){
     for(let j=0; j<5; j++){
         let width = 48;
         let height = 48;
+        // skapa mellanrum mellan fyrkanterna
         let gap = 20;
         let x = 8 + (width + gap) * i;
         let y = 8 + (height + gap) * j;
@@ -17,7 +20,12 @@ for(let i=0; i<5; i++){
         squareLarge.style.position = 'absolute';
         squareLarge.style.translate = `${x}px ${y}px`;
         container.appendChild(squareLarge);
-
+        
+        // skapa random små fyrkanter inuti de stora fyrkanter. 
+        // De skapas varje gång lopparna kör (25 gånger totalt) men skapas bara om Math.random är större än 0.5.
+        // Varje gång man uppdaterar browsern kommer ett nytt random nummer mellan 0 och 1. 
+        // Detta gör att de små fyrkanter skapas varje gång på random platser. 
+        
         if(Math.random() > 0.5){
         const squareSmall = document.createElement('div');
         squareSmall.setAttribute('id', 'sqr-small');
@@ -31,6 +39,7 @@ for(let i=0; i<5; i++){
     }   
 }
 
+// Skapa en animation för de stora fyrkanterna. 
 const squareLgAnimation = {
     targets: '#sqr-large',
     scale: [
@@ -46,6 +55,7 @@ const squareLgAnimation = {
     loop: true   
 }
 
+// Skapa en animation för de småa fyrkanterna.
 const squareSmAnimation = {
     targets: '#sqr-small',
     rotateZ: anime.stagger([0, 90], {grid: [25, 5], from: 'center', axis: 'x'}),
@@ -61,6 +71,7 @@ const squareSmAnimation = {
 const squareLg = anime(squareLgAnimation);
 const squareSm = anime(squareSmAnimation);
 
+// kontrollknappar (play, pause, stop och change)
 const playBtn = document.querySelector('#play');
 playBtn.addEventListener('click', squareLg.play);
 playBtn.addEventListener('click', squareSm.play);
@@ -77,5 +88,7 @@ stopBtn.addEventListener('click', () => {
     squareSm.pause();
 });
 
+// changeBtn gör att man kan uppdatera browsern genom location.reload funtionen.
+// Varje gån man klickar så kommer ett nytt random nummer och därmed små fyrkanter på random platser i matrixen.
 const changeBtn = document.querySelector('#change')
 changeBtn.addEventListener('click', () => location.reload())
